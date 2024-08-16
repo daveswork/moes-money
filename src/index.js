@@ -15,22 +15,27 @@ import ErrorPage from './components/ErrorPage';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App/>,
     errorElement:
-    <ErrorPage />,
+    <ErrorPage/>,
     children: [
-      // {
-      //   path: "/summary",
-      //   element: <Summary />
-      // },
-      // {
-      //   path: "/incomelist",
-      //   element: <IncomeList />
-      // },
+      {
+        path:"/home",
+        element:<Home />
+      },
+      {
+        path:"/summary",
+        element: <Summary />
+      },
       {
         path: "/expenselist",
-        element: <ExpenseList />
+        element: <ExpenseList/>
+      },
+      {
+        path: "/incomelist",
+        element: <IncomeList />
       }
+
 
     ]
   },

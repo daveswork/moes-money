@@ -1,14 +1,15 @@
-import NavBar from "./NavBar"
+
 
 function ExpenseList(){
+
+  return(
     <div>
-      <header>
-        <NavBar />
-      </header>
+
       <h1>
         ExpenseList
       </h1>
     </div>
+  )
 }
 
 export default ExpenseList
