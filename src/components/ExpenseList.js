@@ -1,4 +1,4 @@
-
+import ExpenseForm from "./ExpensesForm"
 
 function ExpenseList(){
 
@@ -7,6 +7,7 @@ function ExpenseList(){
 
       <h1>
         ExpenseList
+        <ExpenseForm />
       </h1>
     </div>
   )

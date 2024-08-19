@@ -1,1 +1,13 @@
-{}
+{
+  "income": [
+    {
+      "id": "665f",
+      "date": "2024-08-20",
+      "description": "Uber",
+      "amount": "100.00",
+      "category": "transport",
+      "notes": "work"
+    }
+  ],
+  "expenditures": []
+}
