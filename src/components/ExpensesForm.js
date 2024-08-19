@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { useOutletContext } from "react-router-dom"
+import CategorySelection from "./CategorySelection"
 
 
-function ExpenseForm(){
+function ExpenseForm({categoryList}){
 
     const [expenseItem, setExpenseItem] = useState({
         date: "",
@@ -10,6 +12,8 @@ function ExpenseForm(){
         category: "",
         notes: ""
     })
+    console.log(categoryList)
+
 
     function handleChange(event){
         console.log(event.target.name)
@@ -45,7 +49,7 @@ function ExpenseForm(){
                 <input onChange={(event)=>{handleChange(event)}} name="amount" id="amount" type="number" />
                 <br/>
                 <label htmlFor="category">Category: </label>
-                <input onChange={(event)=>{handleChange(event)}} name="category" id="category" type="text" />
+                <CategorySelection categoryList={categoryList}/>
                 <br/>
                 <label htmlFor="notes">Notes: </label>
                 <input onChange={(event)=>{handleChange(event)}} name="notes" id="notes" type="notes" />

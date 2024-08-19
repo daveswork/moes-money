@@ -9,5 +9,27 @@
       "notes": "work"
     }
   ],
-  "expenditures": []
+  "expenditures": [],
+  "categories": [
+    {
+      "id": "4279",
+      "categoryName": "Food"
+    },
+    {
+      "id": "cfc8",
+      "categoryName": "Transportation"
+    },
+    {
+      "id": "5274",
+      "categoryName": "Medical"
+    },
+    {
+      "id": "48c1",
+      "categoryName": "Housing"
+    },
+    {
+      "id": "2bce",
+      "categoryName": "Entertainment"
+    }
+  ]
 }
