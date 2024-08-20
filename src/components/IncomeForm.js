@@ -49,7 +49,7 @@ function IncomeForm({categoryList}){
                 <br/>
                 <label htmlFor="category">Category: </label>
                 {/* <input onChange={(event)=>{handleChange(event)}} name="category" id="category" type="text" /> */}
-                <CategorySelection categoryList={categoryList} handleChange={handleChange}/>
+                <CategorySelection categoryList={categoryList} handleChange={handleChange} selectedCategory={incomeSource.category}/>
                 <br/>
                 <label htmlFor="notes">Notes: </label>
                 <input onChange={(event)=>{handleChange(event)}} name="notes" id="notes" type="notes" value={incomeSource.notes}/>

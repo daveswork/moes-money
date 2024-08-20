@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import CategorySelection from "./CategorySelection"
 
 
-function CashFlowItem({cashEntry, categoryList, removeExpense}){
+function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense}){
 
     console.log("Category list from Cash flow form ", categoryList)
     console.log("Current item", cashEntry)
@@ -27,13 +27,14 @@ function CashFlowItem({cashEntry, categoryList, removeExpense}){
             method: "DELETE"
         })
         .then(response => response.json())
-        .then(data => removeExpense(cashEntry.id))
+        .then(() => removeExpense(cashEntry.id))
     }
 
     function handleSubmitChange(event){
         event.preventDefault()
         console.log(editExpenseItem)
-    
+        updateExpense(cashEntry.id, editExpenseItem)
+        handleFormToggle()
     }
 
     return (
@@ -56,20 +57,19 @@ function CashFlowItem({cashEntry, categoryList, removeExpense}){
                 <label htmlFor="notes">Notes: </label>
                 <input onChange={(event)=>{handleChangeForm(event)}} name="notes" id="notes" type="notes" value={editExpenseItem.notes}/>
                 <br/>
-                <input type="submit" value="Submit expense"/>
+                <input type="submit" value="Submit change"/>
+                <button onClick={handleFormToggle}>Cancel</button>
             </form>
-            <button onClick={handleFormToggle}>Cancel</button>
             <br/>
         </div>:
-        <div>
-            <span>{cashEntry.date} </span><span>{cashEntry.description} </span> <span>{cashEntry.amount}</span>
-            <br/>
-            <p>{cashEntry.notes}</p>
+        <tbody>
+            <tr>
+            <td><span>{cashEntry.date} </span></td><td><span>{cashEntry.description} </span></td> <td><span>{cashEntry.amount}</span></td>
+            </tr>
+            <tr><p>{cashEntry.notes}</p></tr>
             <button onClick={handleDelete}>Delete</button>
             <button onClick={handleFormToggle}>Edit</button>
-            <br/>
-            
-        </div>
+        </tbody>
 
 }
 </div>

@@ -3,24 +3,24 @@ import { useOutletContext } from "react-router-dom"
 import CategorySelection from "./CategorySelection"
 
 
-function ExpenseForm({updateExpense, categoryList}){
+function ExpenseForm({updateExpenseList, categoryList}){
 
  
 
-console.log("Category list from Expense Form: ", categoryList)
-const [expenseItem, setExpenseItem] = useState({
-    date: "",
-    description: "",
-    amount: 0,
-    category: "",
-    notes: ""
-})
+    console.log("Category list from Expense Form: ", categoryList)
+    const [expenseItem, setExpenseItem] = useState({
+        date: "",
+        description: "",
+        amount: 0,
+        category: categoryList[0].categoryName,
+        notes: ""
+    })
 
-function handleChange(event){
-    console.log(event.target.name)
-    console.log(event.target.value)
-    setExpenseItem({...expenseItem, [event.target.name]: event.target.value})
-}
+    function handleChange(event){
+        console.log(event.target.name)
+        console.log(event.target.value)
+        setExpenseItem({...expenseItem, [event.target.name]: event.target.value})
+    }
 
     function handleSubmit(event){
         event.preventDefault()
@@ -39,11 +39,11 @@ function handleChange(event){
                     date: "",
                     description: "",
                     amount: 0,
-                    category: "",
+                    category: categoryList[0].categoryName,
                     notes: ""
                 }
             )
-            updateExpense(data)
+            updateExpenseList(data)
         })
 
     }

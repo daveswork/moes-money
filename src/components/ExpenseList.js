@@ -6,11 +6,11 @@ import { useState } from "react"
 
 function ExpenseList(){
 
-  const {categoryList, expenditureList, updateExpense, removeExpense} = useOutletContext()
+  const {categoryList, expenditureList, updateExpenseList, removeExpense, updateExpense} = useOutletContext()
 
   const expensesListElements = expenditureList.map((expense, index) =>{
     return (
-    <CashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense}/>
+    <CashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense} updateExpense={updateExpense}/>
   )
 
   })
@@ -19,10 +19,12 @@ function ExpenseList(){
     <div>
         <h1>ExpenseList</h1>
         <br/>
-        <ExpenseForm categoryList={categoryList} updateExpense={updateExpense}/>
+        <ExpenseForm categoryList={categoryList} updateExpenseList={updateExpenseList}/>
         <br/>
         <div className="grid">
+          <table>
         {expensesListElements}
+        </table>
         </div>
     </div>
   )

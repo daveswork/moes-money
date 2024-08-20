@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 
 import './App.css';
 import NavBar from './NavBar';
+import Summary from './Summary';
 
 
 function App() {
 
-
+  //==============================================================================================
   // Category states and functions
 
   const [categoryList, setCategoryList] = useState([])
@@ -27,7 +28,7 @@ function App() {
     setCategoryList([...categoryList, newCategory])
   }
 
-
+  //==============================================================================================
   // All income states and functions
 
   const [incomeSourceList, setIncomeSourceList] = useState([])
@@ -38,14 +39,19 @@ function App() {
       setIncomeSourceList([...income])
     })
   }, [])
+
   function updateIncome(newIncome){
     setIncomeSourceList([...incomeSourceList, newIncome])
   }
 
 
-
+  //==============================================================================================
   // All expense states and functions
+
+  // Set expense state
   const [activeExpenseList, setActiveExpenseList] = useState([])
+
+  // Load data from db
   useEffect(()=>{
     fetch("http://localhost:4000/expenditures")
     .then(response => response.json())
@@ -54,10 +60,12 @@ function App() {
     })
   }, [])
 
-  function updateExpense(newExpense){
+  // Adding a new expense item
+  function updateExpenseList(newExpense){
     setActiveExpenseList([...activeExpenseList, newExpense])
   }
 
+  // Removing an existing expense item
   function removeExpense(expenseId){
     const prunedExpenseList = activeExpenseList.filter(expense => {
       if(expense.id === expenseId){
@@ -69,17 +77,47 @@ function App() {
     setActiveExpenseList(prunedExpenseList)
   }
 
+  function updateExpense(id, editExpenseItem){
+    fetch(`http://localhost:4000/expenditures/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(editExpenseItem)
+    })
+    .then(response => response.json())
+    .then(updatedExpense => setActiveExpenseList( expenses => expenses.map( expense =>{
+      if(updatedExpense.id === expense.id){
+        return updatedExpense
+      } else{
+        return expense
+      }
+    }
+
+    )
+
+    )
+
+    )
+
+  }
+
+
+
   return (
     
     <div>
       <header>
         <NavBar />
       </header>
+      
       <Outlet context={{
         categoryList:categoryList, setCategoryList:setCategoryList, updateCategory: updateCategory,
         incomeSourceList:incomeSourceList, setIncomeSourceList:setIncomeSourceList, updateIncome: updateIncome,
-        expenditureList:activeExpenseList, setExpenditureList:setActiveExpenseList, updateExpense: updateExpense, removeExpense:removeExpense
+        expenditureList:activeExpenseList, setExpenditureList:setActiveExpenseList, updateExpenseList: updateExpenseList, removeExpense:removeExpense, updateExpense:updateExpense
         }}/>
+        
     </div>
   );
 }
