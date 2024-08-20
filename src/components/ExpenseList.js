@@ -9,8 +9,12 @@ function ExpenseList(){
   const {categoryList, expenditureList, updateExpenseList, removeExpense, updateExpense} = useOutletContext()
 
   const expensesListElements = expenditureList.map((expense, index) =>{
+
+    const background = index%2===0?"lightSeaGreenBackground":"lightBlueBackground"
+    console.log(background)
+
     return (
-    <CashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense} updateExpense={updateExpense}/>
+    <CashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense} updateExpense={updateExpense} backgroundClass={background}/>
   )
 
   })

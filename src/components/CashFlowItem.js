@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import CategorySelection from "./CategorySelection"
 
 
-function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense}){
+function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense, backgroundClass}){
 
     console.log("Category list from Cash flow form ", categoryList)
     console.log("Current item", cashEntry)
@@ -38,7 +38,7 @@ function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense}){
     }
 
     return (
-        <div >
+        < >
         { displayForm ?
         <div>
             <form onSubmit={(event) => handleSubmitChange(event)}>
@@ -63,16 +63,23 @@ function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense}){
             <br/>
         </div>:
         <tbody>
-            <tr>
-            <td><span>{cashEntry.date} </span></td><td><span>{cashEntry.description} </span></td> <td><span>{cashEntry.amount}</span></td>
-            </tr>
-            <tr><p>{cashEntry.notes}</p></tr>
-            <button onClick={handleDelete}>Delete</button>
+            <tr className={backgroundClass}>
+            <td><span>{cashEntry.date} </span></td>
+            <td><span>{cashEntry.category} </span></td> 
+            <td><span>{cashEntry.description} </span></td> 
+            <td><span>{cashEntry.notes}</span></td>
+            <td><span>{cashEntry.amount}</span></td>
             <button onClick={handleFormToggle}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+            
+            
+            </tr>
+            
+
         </tbody>
 
 }
-</div>
+</>
 
         // <>
         //     <span>{cashEntry.date} </span><span>{cashEntry.description} </span> <span>{cashEntry.amount}</span>

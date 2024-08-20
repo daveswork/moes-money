@@ -25,6 +25,14 @@ code {
   color: black;
 }
 
+.lightSeaGreenBackground{
+  background-color: lightseagreen;
+}
+
+.lightBlueBackground {
+  background-color: lightblue;
+}
+
 .grid {
   grid-auto-columns: max-content;
 }

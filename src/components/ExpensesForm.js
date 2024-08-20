@@ -58,7 +58,7 @@ function ExpenseForm({updateExpenseList, categoryList}){
                 <input onChange={(event)=>{handleChange(event)}} name="description" id="description" type="text" value={expenseItem.description}/>
                 <br/>
                 <label htmlFor="amount">Amount: </label>
-                <input onChange={(event)=>{handleChange(event)}} name="amount" id="amount" type="number" value={expenseItem.amount}/>
+                <input onChange={(event)=>{handleChange(event)}} name="amount" id="amount" type="number" step="0.01" value={expenseItem.amount}/>
                 <br/>
                 <label htmlFor="category">Category: </label>
                 <CategorySelection categoryList={categoryList} handleChange={handleChange} selectedCategory={expenseItem.category}/>
