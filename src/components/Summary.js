@@ -1,9 +1,25 @@
+import { useOutletContext } from "react-router-dom"
 
 
 function Summary(){
+    const {expenditureList, incomeSourceList} = useOutletContext()
+
+    const initialValue = 0
+
+    const totalExpenses = expenditureList.reduce((total, expense) => total + Number(expense.amount), initialValue)
+
+    const totalIncome = incomeSourceList.reduce((total, income) => total + Number(income.amount), initialValue)
+
+    console.log(incomeSourceList)
+
+    console.log(totalExpenses)
+
+
     return(
         <div>
-            Summary
+            <h1>Summary</h1>
+            <h2>Total Income: {totalIncome}</h2>
+            <h2>Total expenses: {totalExpenses}</h2>
         </div>
     )
 }

@@ -1,11 +1,13 @@
 import IncomeForm from "./IncomeForm"
+import { useOutletContext } from "react-router-dom"
 
 
 function IncomeList(){
+    const {categoryList,setIncomeSourceList, updateIncome} = useOutletContext()
     return(
     <div>
         IncomeList
-        <IncomeForm />
+        <IncomeForm categoryList={categoryList}/>
     </div>
     )
 }

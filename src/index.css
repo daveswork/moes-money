@@ -24,3 +24,7 @@ code {
   font-size: min(10vw, 15px) ;
   color: black;
 }
+
+.grid {
+  grid-auto-columns: max-content;
+}

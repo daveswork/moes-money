@@ -9,7 +9,6 @@ import Summary from './components/Summary';
 import IncomeList from './components/IncomeList';
 import ExpenseList from './components/ExpenseList';
 import Category from './components/Category';
-
 import ErrorPage from './components/ErrorPage';
 
 

@@ -3,23 +3,24 @@ import { useOutletContext } from "react-router-dom"
 import CategorySelection from "./CategorySelection"
 
 
-function ExpenseForm({categoryList}){
+function ExpenseForm({updateExpense, categoryList}){
 
-    const [expenseItem, setExpenseItem] = useState({
-        date: "",
-        description: "",
-        amount: 0,
-        category: "",
-        notes: ""
-    })
-    console.log(categoryList)
+ 
 
+console.log("Category list from Expense Form: ", categoryList)
+const [expenseItem, setExpenseItem] = useState({
+    date: "",
+    description: "",
+    amount: 0,
+    category: "",
+    notes: ""
+})
 
-    function handleChange(event){
-        console.log(event.target.name)
-        console.log(event.target.value)
-        setExpenseItem({...expenseItem, [event.target.name]: event.target.value})
-    }
+function handleChange(event){
+    console.log(event.target.name)
+    console.log(event.target.value)
+    setExpenseItem({...expenseItem, [event.target.name]: event.target.value})
+}
 
     function handleSubmit(event){
         event.preventDefault()
@@ -32,7 +33,18 @@ function ExpenseForm({categoryList}){
             body: JSON.stringify(expenseItem)
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            setExpenseItem(
+                {
+                    date: "",
+                    description: "",
+                    amount: 0,
+                    category: "",
+                    notes: ""
+                }
+            )
+            updateExpense(data)
+        })
 
     }
 
@@ -40,21 +52,21 @@ function ExpenseForm({categoryList}){
         <div>
             <form onSubmit={(event) => handleSubmit(event)}>
                 <label htmlFor="date">Date: </label>
-                <input onChange={(event)=>{handleChange(event)}} name="date" id="date" type="date"/>
+                <input onChange={(event)=>{handleChange(event)}} name="date" id="date" type="date" value={expenseItem.date}/>
                 <br/>
                 <label htmlFor="description">Description: </label>
-                <input onChange={(event)=>{handleChange(event)}} name="description" id="description" type="text" />
+                <input onChange={(event)=>{handleChange(event)}} name="description" id="description" type="text" value={expenseItem.description}/>
                 <br/>
                 <label htmlFor="amount">Amount: </label>
-                <input onChange={(event)=>{handleChange(event)}} name="amount" id="amount" type="number" />
+                <input onChange={(event)=>{handleChange(event)}} name="amount" id="amount" type="number" value={expenseItem.amount}/>
                 <br/>
                 <label htmlFor="category">Category: </label>
-                <CategorySelection categoryList={categoryList}/>
+                <CategorySelection categoryList={categoryList} handleChange={handleChange} selectedCategory={expenseItem.category}/>
                 <br/>
                 <label htmlFor="notes">Notes: </label>
-                <input onChange={(event)=>{handleChange(event)}} name="notes" id="notes" type="notes" />
+                <input onChange={(event)=>{handleChange(event)}} name="notes" id="notes" type="notes" value={expenseItem.notes}/>
                 <br/>
-                <input type="submit" value="Submit income source"/>
+                <input type="submit" value="Submit expense"/>
 
             </form>
 

@@ -1,19 +1,29 @@
 import ExpenseForm from "./ExpensesForm"
+import CashFlowItem from "./CashFlowItem"
+import Category from "./Category"
 import { useOutletContext } from "react-router-dom"
+import { useState } from "react"
 
 function ExpenseList(){
 
-  const {categoryList} = useOutletContext()
+  const {categoryList, expenditureList, updateExpense, removeExpense} = useOutletContext()
 
-  console.log("these are the listed categories you may use", categoryList)
+  const expensesListElements = expenditureList.map((expense, index) =>{
+    return (
+    <CashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense}/>
+  )
+
+  })
 
   return(
     <div>
-
-      <h1>
-        ExpenseList
-        <ExpenseForm categoryList={categoryList}/>
-      </h1>
+        <h1>ExpenseList</h1>
+        <br/>
+        <ExpenseForm categoryList={categoryList} updateExpense={updateExpense}/>
+        <br/>
+        <div className="grid">
+        {expensesListElements}
+        </div>
     </div>
   )
 }

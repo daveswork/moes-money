@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function CategoryForm(){
+function CategoryForm({updateCategory}){
 
     const [category, setCategory] = useState({
         categoryName: ""
@@ -19,15 +19,19 @@ function CategoryForm(){
             },
             body: JSON.stringify(category)
         }).then(response => response.json())
-        .then(data => setCategory({
+        .then(data => {
+            setCategory({
             categoryName: ""
-        }))
+        })
+        updateCategory(data)
+    }
+    )
     }
 
     return (
         <div>
             <form onSubmit={event => handleSubmit(event)}>
-                <label htmlFor="categoryName">Category Name</label>
+                <label htmlFor="categoryName">Create New Category</label>
                 <input onChange={event => handleChange(event)} type="text" name="categoryName" id="categoryName" value={category.categoryName}/>
                 <input type="submit" value="Create category" />
 

@@ -1,15 +1,40 @@
 {
   "income": [
     {
-      "id": "665f",
-      "date": "2024-08-20",
-      "description": "Uber",
-      "amount": "100.00",
-      "category": "transport",
-      "notes": "work"
+      "id": "1e8b",
+      "date": "2024-08-01",
+      "description": "Wages",
+      "amount": "1500",
+      "category": "Wages",
+      "notes": ""
     }
   ],
-  "expenditures": [],
+  "expenditures": [
+    {
+      "id": "73f0",
+      "date": "2024-08-21",
+      "description": "Burger",
+      "amount": "15",
+      "category": "Food",
+      "notes": "Small lunch"
+    },
+    {
+      "id": "b5f6",
+      "date": "2024-08-20",
+      "description": "Falafel plate",
+      "amount": "10",
+      "category": "Food",
+      "notes": "Falafel, salad, tahini"
+    },
+    {
+      "id": "39a9",
+      "date": "2024-08-15",
+      "description": "Morgan's BBQ",
+      "amount": "55",
+      "category": "Food",
+      "notes": "BBQ and whiskey"
+    }
+  ],
   "categories": [
     {
       "id": "4279",
@@ -30,6 +55,22 @@
     {
       "id": "2bce",
       "categoryName": "Entertainment"
+    },
+    {
+      "id": "339d",
+      "categoryName": "Wages"
+    },
+    {
+      "id": "f9d2",
+      "categoryName": "Salary"
+    },
+    {
+      "id": "fc23",
+      "categoryName": "Services"
+    },
+    {
+      "id": "3b34",
+      "categoryName": "Educations"
     }
   ]
 }
