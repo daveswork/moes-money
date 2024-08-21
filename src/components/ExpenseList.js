@@ -32,8 +32,6 @@ function ExpenseList(){
   })
 
 
-  console.log(filteredExpenses)
-
   const initialValue = 0
 
   const totalExpenses = filteredExpenses.reduce((total, expense) => total + Number(expense.amount), initialValue)
@@ -60,11 +58,13 @@ function ExpenseList(){
           {categoryFilterOptions}
         </select>
         <br/>
-        <h2>Total Expenses: {USDollar.format(totalExpenses)}</h2>
+        <h2>{expenseFilter} Expenses: {USDollar.format(totalExpenses)}</h2>
         <br/>
+        <h3>Add new expense:</h3>
         <ExpenseForm categoryList={categoryList} updateExpenseList={updateExpenseList}/>
         <br/>
         <div className="grid">
+          <h3>Current expenses:</h3>
           <table>
             <tbody>
             <tr>
