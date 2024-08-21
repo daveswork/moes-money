@@ -19,7 +19,6 @@ function ExpenseList(){
   const expensesListElements = expenditureList.map((expense, index) =>{
 
     const background = index%2===0?"lightRedColor":"lightOrangeColor"
-    console.log(background)
 
     return (
     <ExpenseCashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense} updateExpense={updateExpense} backgroundClass={background}/>

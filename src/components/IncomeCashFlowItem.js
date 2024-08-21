@@ -4,9 +4,6 @@ import CategorySelection from "./CategorySelection"
 
 function IncomeCashFlowItem({cashEntry, categoryList, removeIncome, updateIncome, backgroundClass}){
 
-    console.log("Category list from Cash flow form ", categoryList)
-    console.log("Current item", cashEntry)
-
     const [displayForm, setDisplayForm] = useState(false)
 
     const [editIncomeItem, setEditIncomeItem] = useState(cashEntry)
@@ -15,8 +12,6 @@ function IncomeCashFlowItem({cashEntry, categoryList, removeIncome, updateIncome
         style: 'currency',
         currency: 'USD'
     })
-
-    console.log(USDollar.format(editIncomeItem.amount))
   
   
     function handleChangeForm(event){
@@ -37,7 +32,6 @@ function IncomeCashFlowItem({cashEntry, categoryList, removeIncome, updateIncome
 
     function handleSubmitChange(event){
         event.preventDefault()
-        console.log(editIncomeItem)
         updateIncome(cashEntry.id, editIncomeItem)
         handleFormToggle()
     }

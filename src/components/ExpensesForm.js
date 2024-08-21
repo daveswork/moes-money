@@ -7,7 +7,6 @@ function ExpenseForm({updateExpenseList, categoryList}){
 
  
 
-    console.log("Category list from Expense Form: ", categoryList)
     const [expenseItem, setExpenseItem] = useState({
         date: "",
         description: "",
@@ -17,8 +16,6 @@ function ExpenseForm({updateExpenseList, categoryList}){
     })
 
     function handleChange(event){
-        console.log(event.target.name)
-        console.log(event.target.value)
         setExpenseItem({...expenseItem, [event.target.name]: event.target.value})
     }
 

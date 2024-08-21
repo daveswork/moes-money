@@ -15,8 +15,6 @@ function IncomeForm({updateIncomeList,categoryList}){
     const [incomeSource, setIncomeSource] = useState(baseCashFlowItem)
 
     function handleChange(event){
-        console.log(event.target.name)
-        console.log(event.target.value)
         setIncomeSource({...incomeSource, [event.target.name]: event.target.value})
     }
 
@@ -51,7 +49,6 @@ function IncomeForm({updateIncomeList,categoryList}){
                 <input onChange={(event)=>{handleChange(event)}} name="amount" id="amount" type="number" value={incomeSource.amount}/>
                 <br/>
                 <label htmlFor="category">Category: </label>
-                {/* <input onChange={(event)=>{handleChange(event)}} name="category" id="category" type="text" /> */}
                 <CategorySelection categoryList={categoryList} handleChange={handleChange} selectedCategory={incomeSource.category}/>
                 <br/>
                 <label htmlFor="notes">Notes: </label>
