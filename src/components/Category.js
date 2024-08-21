@@ -3,12 +3,20 @@ import { useOutletContext } from "react-router-dom";
 
 
 function Category(){
-    const {updateCategory} = useOutletContext()
+    const {categoryList, updateCategory} = useOutletContext()
+
+    const categoryListElements = categoryList.map((category, index)  => {
+        return <li key={index}>{category.categoryName}</li>
+    })
     
     return(
         <div>
-            Category
+            <h1>Category Maintenance</h1>
+            <br/>
             <CategoryForm updateCategory={updateCategory}/>
+            <br/>
+            <h4>Existing categories:</h4>
+            <ul>{categoryListElements}</ul>
         </div>
     )
 }

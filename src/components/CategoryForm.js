@@ -31,7 +31,7 @@ function CategoryForm({updateCategory}){
     return (
         <div>
             <form onSubmit={event => handleSubmit(event)}>
-                <label htmlFor="categoryName">Create New Category</label>
+                <label htmlFor="categoryName">Create New Category: </label>
                 <input onChange={event => handleChange(event)} type="text" name="categoryName" id="categoryName" value={category.categoryName}/>
                 <input type="submit" value="Create category" />
 
