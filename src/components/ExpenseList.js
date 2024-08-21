@@ -8,9 +8,18 @@ function ExpenseList(){
 
   const {categoryList, expenditureList, updateExpenseList, removeExpense, updateExpense} = useOutletContext()
 
+  const USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+})
+
+  const initialValue = 0
+
+  const totalExpenses = expenditureList.reduce((total, expense) => total + Number(expense.amount), initialValue)
+
   const expensesListElements = expenditureList.map((expense, index) =>{
 
-    const background = index%2===0?"lightSeaGreenBackground":"lightBlueBackground"
+    const background = index%2===0?"lightRedColor":"lightOrangeColor"
     console.log(background)
 
     return (
@@ -23,10 +32,19 @@ function ExpenseList(){
     <div>
         <h1>ExpenseList</h1>
         <br/>
+        <h2>Total expenses: {USDollar.format(totalExpenses)}</h2>
+        <br/>
         <ExpenseForm categoryList={categoryList} updateExpenseList={updateExpenseList}/>
         <br/>
         <div className="grid">
           <table>
+            <tr>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Notes</th>
+              <th>Amount</th>
+            </tr>
         {expensesListElements}
         </table>
         </div>

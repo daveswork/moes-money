@@ -12,6 +12,13 @@ function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense, ba
     const [displayForm, setDisplayForm] = useState(false)
 
     const [editExpenseItem, setEditExpenseItem] = useState(cashEntry)
+
+    const USDollar = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    })
+
+    console.log(USDollar.format(editExpenseItem.amount))
   
   
     function handleChangeForm(event){
@@ -41,7 +48,7 @@ function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense, ba
         < >
         { displayForm ?
         <div>
-            <form onSubmit={(event) => handleSubmitChange(event)}>
+            <form className={backgroundClass} onSubmit={(event) => handleSubmitChange(event)}>
             <label htmlFor="date">Date: </label>
                 <input onChange={(event)=>{handleChangeForm(event)}} name="date" id="date" type="date" value={editExpenseItem.date}/>
                 <br/>
@@ -68,7 +75,7 @@ function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense, ba
             <td><span>{cashEntry.category} </span></td> 
             <td><span>{cashEntry.description} </span></td> 
             <td><span>{cashEntry.notes}</span></td>
-            <td><span>{cashEntry.amount}</span></td>
+            <td className="currencyAlign"><span >{USDollar.format(cashEntry.amount)}</span></td>
             <button onClick={handleFormToggle}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
             

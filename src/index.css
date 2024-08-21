@@ -33,6 +33,31 @@ code {
   background-color: lightblue;
 }
 
+.lightCoralBackground{
+  background-color: lightcoral;
+}
+
+.lightSalmonBackground{
+  background-color: lightsalmon;
+}
+
+.lightRedColor{
+  background-color: rgb(250, 157, 157);
+}
+
+.lightOrangeColor{
+  background-color: rgb(250, 190, 101);
+}
+
+.currencyAlign{
+  text-align: right;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 .grid {
   grid-auto-columns: max-content;
 }
