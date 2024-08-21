@@ -7,32 +7,88 @@
       "amount": "1500",
       "category": "Wages",
       "notes": ""
+    },
+    {
+      "id": "4630",
+      "date": "2024-08-19",
+      "description": "Delivery",
+      "amount": "10",
+      "category": "Wages",
+      "notes": "Tips"
+    },
+    {
+      "id": "fc1c",
+      "date": "2024-08-08",
+      "description": "Uber",
+      "amount": "25",
+      "category": "Wages",
+      "notes": "Outter boroughs"
+    },
+    {
+      "id": "35e9",
+      "date": "2024-08-02",
+      "description": "Service",
+      "amount": "25",
+      "category": "Services",
+      "notes": "Catering job"
+    },
+    {
+      "id": "4b71",
+      "date": "2024-08-15",
+      "description": "Found",
+      "amount": "100",
+      "category": "Wages",
+      "notes": "Found on the street"
+    },
+    {
+      "id": "5cb7",
+      "date": "2024-08-16",
+      "description": "test",
+      "amount": "20",
+      "category": "Food",
+      "notes": "testing sort"
     }
   ],
   "expenditures": [
-    {
-      "id": "73f0",
-      "date": "2024-08-21",
-      "description": "Burger",
-      "amount": "15",
-      "category": "Food",
-      "notes": "Small lunch"
-    },
-    {
-      "id": "b5f6",
-      "date": "2024-08-20",
-      "description": "Falafel plate",
-      "amount": "10",
-      "category": "Food",
-      "notes": "Falafel, salad, tahini"
-    },
     {
       "id": "39a9",
       "date": "2024-08-15",
       "description": "Morgan's BBQ",
       "amount": "55",
       "category": "Food",
-      "notes": "BBQ and whiskey"
+      "notes": "BBQ and whiskey, and cake"
+    },
+    {
+      "id": "09cd",
+      "date": "2024-08-16",
+      "description": "Hardware",
+      "amount": "12.77",
+      "category": "Housing",
+      "notes": "test"
+    },
+    {
+      "id": "c994",
+      "date": "2024-08-01",
+      "description": "test three",
+      "amount": "12",
+      "category": "Food",
+      "notes": "test"
+    },
+    {
+      "id": "94bc",
+      "date": "2024-08-22",
+      "description": "bagel",
+      "amount": "12",
+      "category": "Food",
+      "notes": "bagel with lox and cream cheese"
+    },
+    {
+      "id": "9079",
+      "date": "2024-08-22",
+      "description": "coffee",
+      "amount": "5",
+      "category": "Food",
+      "notes": "Bean and Bean"
     }
   ],
   "categories": [
@@ -71,6 +127,10 @@
     {
       "id": "3b34",
       "categoryName": "Educations"
+    },
+    {
+      "id": "6749",
+      "categoryName": "Hacking"
     }
   ]
 }

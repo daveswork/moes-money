@@ -61,3 +61,12 @@ table, th, td {
 .grid {
   grid-auto-columns: max-content;
 }
+
+.list {
+  padding: 100px;
+  text-align: left;
+}
+
+.summary, body {
+  text-align:  center;
+}

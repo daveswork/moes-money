@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 
 import './App.css';
 import NavBar from './NavBar';
-import Summary from './Summary';
 
 
 function App() {

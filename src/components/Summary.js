@@ -22,7 +22,7 @@ function Summary(){
     
 
     return(
-        <div>
+        <div className="summary">
             <h1>Summary</h1>
             <h2>Total Income: {USDollar.format(totalIncome)}</h2>
             <h3>Your most recent income was on {mostRecentIncome.date} for {USDollar.format(mostRecentIncome.amount)} </h3>

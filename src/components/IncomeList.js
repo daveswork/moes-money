@@ -46,7 +46,7 @@ function IncomeList(){
     })
 
     return(
-    <div>
+    <div className="list">
         <h1>Income List</h1>
         <br/>
         <h3>Filter by category</h3>

@@ -49,7 +49,7 @@ function ExpenseList(){
   })
 
   return(
-    <div>
+    <div className="list">
         <h1>Expense List</h1>
         <br/>
         <h3>Filter by category</h3>
