@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react"
-import { useOutletContext, useNavigate } from "react-router-dom"
-import { useParams } from "react-router-dom"
+import { useState } from "react"
 import CategorySelection from "./CategorySelection"
 
 
