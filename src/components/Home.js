@@ -1,3 +1,4 @@
+import { useOutletContext } from "react-router-dom"
 
 function Home(){
     console.log("home")

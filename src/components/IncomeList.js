@@ -36,6 +36,7 @@ function IncomeList(){
         <br />
         <div className="grid">
           <table>
+            <tbody>
             <tr>
               <th>Date</th>
               <th>Category</th>
@@ -44,6 +45,7 @@ function IncomeList(){
               <th>Amount</th>
             </tr>
             {incomeListElements}
+            </tbody>
             </table>
             </div>
     </div>

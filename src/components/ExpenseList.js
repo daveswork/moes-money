@@ -21,7 +21,9 @@ function ExpenseList(){
     const background = index%2===0?"lightRedColor":"lightOrangeColor"
 
     return (
+      
     <ExpenseCashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense} updateExpense={updateExpense} backgroundClass={background}/>
+    
   )
 
   })
@@ -36,6 +38,7 @@ function ExpenseList(){
         <br/>
         <div className="grid">
           <table>
+            <tbody>
             <tr>
               <th>Date</th>
               <th>Category</th>
@@ -44,6 +47,7 @@ function ExpenseList(){
               <th>Amount</th>
             </tr>
         {expensesListElements}
+        </tbody>
         </table>
         </div>
     </div>

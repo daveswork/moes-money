@@ -63,7 +63,6 @@ function ExpenseCashFlowItem({cashEntry, categoryList, removeExpense, updateExpe
             </form>
             <br/>
         </div>:
-        <tbody>
             <tr className={backgroundClass}>
             <td><span>{cashEntry.date} </span></td>
             <td><span>{cashEntry.category} </span></td> 
@@ -77,7 +76,6 @@ function ExpenseCashFlowItem({cashEntry, categoryList, removeExpense, updateExpe
             </tr>
             
 
-        </tbody>
 
 }
 </>
