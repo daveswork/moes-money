@@ -15,11 +15,6 @@ function Summary(){
 
     const totalIncome = incomeSourceList.reduce((total, income) => total + Number(income.amount), initialValue)
 
-    console.log(incomeSourceList)
-
-    console.log(totalExpenses)
-
-
     return(
         <div>
             <h1>Summary</h1>
