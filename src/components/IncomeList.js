@@ -19,7 +19,6 @@ function IncomeList(){
     const incomeListElements = incomeSourceList.map((income, index) =>{
   
       const background = index%2===0?"lightBlueBackground":"lightSeaGreenBackground"
-      console.log(background)
   
       return (
       <IncomeCashFlowItem key={index} cashEntry={income} categoryList={categoryList} removeIncome={removeIncome} updateIncome={updateIncome} backgroundClass={background}/>
