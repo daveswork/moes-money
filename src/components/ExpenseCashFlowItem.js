@@ -2,7 +2,7 @@ import { useState } from "react"
 import CategorySelection from "./CategorySelection"
 
 
-function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense, backgroundClass}){
+function ExpenseCashFlowItem({cashEntry, categoryList, removeExpense, updateExpense, backgroundClass}){
 
     console.log("Category list from Cash flow form ", categoryList)
     console.log("Current item", cashEntry)
@@ -96,4 +96,4 @@ function CashFlowItem({cashEntry, categoryList, removeExpense, updateExpense, ba
     
 }
 
-export default CashFlowItem
+export default ExpenseCashFlowItem

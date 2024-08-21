@@ -31,6 +31,7 @@ function App() {
   //==============================================================================================
   // All income states and functions
 
+  // Load data from db
   const [incomeSourceList, setIncomeSourceList] = useState([])
   useEffect(()=>{
     fetch("http://localhost:4000/income")
@@ -40,9 +41,39 @@ function App() {
     })
   }, [])
 
-  function updateIncome(newIncome){
+  // Adding a new income source
+  function updateIncomeList(newIncome){
     setIncomeSourceList([...incomeSourceList, newIncome])
   }
+
+  function removeIncome(incomeId){
+    const prunedIncomeList = incomeSourceList.filter(income => {
+      if(income.id === incomeId){
+        return false
+      } else {
+        return true
+      }
+    })
+    setIncomeSourceList(prunedIncomeList)
+  }
+
+  function updateIncome(id, editIncomeItem){
+    fetch(`http://localhost:4000/income/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(editIncomeItem)
+    })
+    .then(response => response.json())
+    .then(updatedIncome => setIncomeSourceList( incomes => incomes.map( income =>{
+      if(updatedIncome.id === income.id){
+        return updatedIncome
+      } else{
+        return income
+      }
+    })))}
 
 
   //==============================================================================================
@@ -93,15 +124,7 @@ function App() {
       } else{
         return expense
       }
-    }
-
-    )
-
-    )
-
-    )
-
-  }
+    })))}
 
 
 
@@ -114,7 +137,7 @@ function App() {
       
       <Outlet context={{
         categoryList:categoryList, setCategoryList:setCategoryList, updateCategory: updateCategory,
-        incomeSourceList:incomeSourceList, setIncomeSourceList:setIncomeSourceList, updateIncome: updateIncome,
+        incomeSourceList:incomeSourceList, setIncomeSourceList:setIncomeSourceList, updateIncomeList:updateIncomeList, removeIncome:removeIncome, updateIncome: updateIncome,
         expenditureList:activeExpenseList, setExpenditureList:setActiveExpenseList, updateExpenseList: updateExpenseList, removeExpense:removeExpense, updateExpense:updateExpense
         }}/>
         

@@ -2,7 +2,7 @@ import { useState } from "react"
 import CategorySelection from "./CategorySelection"
 
 
-function IncomeForm({categoryList}){
+function IncomeForm({updateIncomeList,categoryList}){
 
     const baseCashFlowItem = {
         date: "",
@@ -31,7 +31,10 @@ function IncomeForm({categoryList}){
             body: JSON.stringify(incomeSource)
         })
         .then(response => response.json())
-        .then(data => setIncomeSource(baseCashFlowItem))
+        .then(data => {
+            setIncomeSource(baseCashFlowItem)
+            updateIncomeList(data)
+        })
 
     }
 

@@ -1,5 +1,5 @@
 import ExpenseForm from "./ExpensesForm"
-import CashFlowItem from "./CashFlowItem"
+import ExpenseCashFlowItem from "./ExpenseCashFlowItem"
 import { useOutletContext } from "react-router-dom"
 
 
@@ -22,16 +22,16 @@ function ExpenseList(){
     console.log(background)
 
     return (
-    <CashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense} updateExpense={updateExpense} backgroundClass={background}/>
+    <ExpenseCashFlowItem key={index} cashEntry={expense} categoryList={categoryList} removeExpense={removeExpense} updateExpense={updateExpense} backgroundClass={background}/>
   )
 
   })
 
   return(
     <div>
-        <h1>ExpenseList</h1>
+        <h1>Expense List</h1>
         <br/>
-        <h2>Total expenses: {USDollar.format(totalExpenses)}</h2>
+        <h2>Total Expenses: {USDollar.format(totalExpenses)}</h2>
         <br/>
         <ExpenseForm categoryList={categoryList} updateExpenseList={updateExpenseList}/>
         <br/>
