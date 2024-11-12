@@ -21,7 +21,7 @@ function IncomeForm({updateIncomeList,categoryList}){
     function handleSubmit(event){
         event.preventDefault()
         
-        fetch('http://localhost:4000/income', {
+        fetch('https://moesmoney.com/db/income', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
