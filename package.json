@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --routes routes.json -w db/db.json -p 4000 -H 0.0.0.0 --read-only"
+    "server": "json-server --routes routes.json -w db/db.json -p 4000 -H 0.0.0.0"
   },
   "eslintConfig": {
     "extends": [
