@@ -24,7 +24,7 @@ function ExpenseCashFlowItem({cashEntry, categoryList, removeExpense, updateExpe
     }
 
     function handleDelete(event){
-        fetch(`https://moesmoney.com/db/expenditures/${cashEntry.id}`, {
+        fetch(`http://192.168.5.105:4000/db/expenditures/${cashEntry.id}`, {
             method: "DELETE"
         })
         .then(response => response.json())

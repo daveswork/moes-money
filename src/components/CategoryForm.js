@@ -12,7 +12,7 @@ function CategoryForm({updateCategory}){
 
     function handleSubmit(event){
         event.preventDefault()
-        fetch("https://moesmoney.com/db/categories",{
+        fetch("http://192.168.5.105:4000/db/categories",{
             method: "POST", 
             headers: {
                 "Content-Type" : "application/JSON"

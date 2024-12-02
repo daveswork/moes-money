@@ -22,7 +22,7 @@ function ExpenseForm({updateExpenseList, categoryList}){
     function handleSubmit(event){
         event.preventDefault()
         
-        fetch('https://moesmoney.com/db/expenditures', {
+        fetch('http://192.168.5.105:4000/db/expenditures', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -23,7 +23,7 @@ function IncomeCashFlowItem({cashEntry, categoryList, removeIncome, updateIncome
     }
 
     function handleDelete(event){
-        fetch(`https://moesmoney.com/db/income/${cashEntry.id}`, {
+        fetch(`http://192.168.5.105:4000/db/income/${cashEntry.id}`, {
             method: "DELETE"
         })
         .then(response => response.json())

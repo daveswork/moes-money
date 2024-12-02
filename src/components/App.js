@@ -12,7 +12,7 @@ function App() {
 
   const [categoryList, setCategoryList] = useState([])
   useEffect(()=>{
-    fetch("https://moesmoney.com/db/categories")
+    fetch("http://192.168.5.105:4000/db/categories")
     .then(response => response.json())
     .then(categories => {
       setCategoryList(categories)
@@ -33,7 +33,7 @@ function App() {
   // Load data from db
   const [incomeSourceList, setIncomeSourceList] = useState([])
   useEffect(()=>{
-    fetch("https://moesmoney.com/db/income")
+    fetch("http://192.168.5.105:4000/db/income")
     .then(response => response.json())
     .then(income => {
       setIncomeSourceList([...income])
@@ -57,7 +57,7 @@ function App() {
   }
 
   function updateIncome(id, editIncomeItem){
-    fetch(`https://moesmoney.com/db/income/${id}`, {
+    fetch(`http://192.168.5.105:4000/db/income/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ function App() {
 
   // Load data from db
   useEffect(()=>{
-    fetch("https://moesmoney.com/db/expenditures")
+    fetch("http://192.168.5.105:4000/db/expenditures")
     .then(response => response.json())
     .then(expenses => {
       setActiveExpenseList([...expenses])
@@ -108,7 +108,7 @@ function App() {
   }
 
   function updateExpense(id, editExpenseItem){
-    fetch(`https://moesmoney.com/db/expenditures/${id}`, {
+    fetch(`http://192.168.5.105:4000/db/expenditures/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
