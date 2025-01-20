@@ -5,7 +5,8 @@ import CategorySelection from "./CategorySelection"
 
 function ExpenseForm({updateExpenseList, categoryList}){
 
- 
+    const dbServer = process.env.REACT_APP_DB_SERVER;
+    const dbPort = process.env.REACT_APP_DB_PORT;
 
     const [expenseItem, setExpenseItem] = useState({
         date: "",
@@ -22,7 +23,7 @@ function ExpenseForm({updateExpenseList, categoryList}){
     function handleSubmit(event){
         event.preventDefault()
         
-        fetch('http://192.168.5.105:4000/db/expenditures', {
+        fetch(`${dbServer}:${dbPort}/db/expenditures`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

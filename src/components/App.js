@@ -6,6 +6,9 @@ import Home from './Home'
 import NavBar from './NavBar';
 
 
+const dbServer = process.env.REACT_APP_DB_SERVER;
+const dbPort = process.env.REACT_APP_DB_PORT;
+
 function App() {
 
   //==============================================================================================
@@ -13,7 +16,7 @@ function App() {
 
   const [categoryList, setCategoryList] = useState([])
   useEffect(()=>{
-    fetch("http://192.168.5.105:4000/db/categories")
+    fetch(`${dbServer}:${dbPort}/db/categories`)
     .then(response => response.json())
     .then(categories => {
       setCategoryList(categories)
@@ -34,7 +37,7 @@ function App() {
   // Load data from db
   const [incomeSourceList, setIncomeSourceList] = useState([])
   useEffect(()=>{
-    fetch("http://192.168.5.105:4000/db/income")
+    fetch(`${dbServer}:${dbPort}/db/income`)
     .then(response => response.json())
     .then(income => {
       setIncomeSourceList([...income])
@@ -58,7 +61,7 @@ function App() {
   }
 
   function updateIncome(id, editIncomeItem){
-    fetch(`http://192.168.5.105:4000/db/income/${id}`, {
+    fetch(`${dbServer}:${dbPort}/db/income/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +87,7 @@ function App() {
 
   // Load data from db
   useEffect(()=>{
-    fetch("http://192.168.5.105:4000/db/expenditures")
+    fetch(`${dbServer}:${dbPort}/db/expenditures`)
     .then(response => response.json())
     .then(expenses => {
       setActiveExpenseList([...expenses])
@@ -109,7 +112,7 @@ function App() {
   }
 
   function updateExpense(id, editExpenseItem){
-    fetch(`http://192.168.5.105:4000/db/expenditures/${id}`, {
+    fetch(`${dbServer}:${dbPort}/db/expenditures/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
