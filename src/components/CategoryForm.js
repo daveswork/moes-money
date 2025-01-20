@@ -2,6 +2,9 @@ import { useState } from "react"
 
 function CategoryForm({updateCategory}){
 
+    const dbServer = process.env.REACT_APP_DB_SERVER;
+    const dbPort = process.env.REACT_APP_DB_PORT;
+
     const [category, setCategory] = useState({
         categoryName: ""
     })
@@ -12,7 +15,7 @@ function CategoryForm({updateCategory}){
 
     function handleSubmit(event){
         event.preventDefault()
-        fetch("https://moesmoney.com/db/categories",{
+        fetch(`${dbServer}:${dbPort}/db/categories`,{
             method: "POST", 
             headers: {
                 "Content-Type" : "application/JSON"
