@@ -3,6 +3,9 @@ import CategorySelection from "./CategorySelection"
 
 
 function IncomeCashFlowItem({cashEntry, categoryList, removeIncome, updateIncome, backgroundClass}){
+    
+    const dbServer = process.env.REACT_APP_DB_SERVER;
+    const dbPort = process.env.REACT_APP_DB_PORT;
 
     const [displayForm, setDisplayForm] = useState(false)
 
@@ -23,7 +26,7 @@ function IncomeCashFlowItem({cashEntry, categoryList, removeIncome, updateIncome
     }
 
     function handleDelete(event){
-        fetch(`http://192.168.5.105:4000/db/income/${cashEntry.id}`, {
+        fetch(`${dbServer}:${dbPort}/db/income/${cashEntry.id}`, {
             method: "DELETE"
         })
         .then(response => response.json())

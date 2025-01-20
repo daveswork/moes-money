@@ -4,6 +4,9 @@ import CategorySelection from "./CategorySelection"
 
 function IncomeForm({updateIncomeList,categoryList}){
 
+    const dbServer = process.env.REACT_APP_DB_SERVER;
+    const dbPort = process.env.REACT_APP_DB_PORT;
+
     const baseCashFlowItem = {
         date: "",
         description: "",
@@ -21,7 +24,7 @@ function IncomeForm({updateIncomeList,categoryList}){
     function handleSubmit(event){
         event.preventDefault()
         
-        fetch('http://192.168.5.105:4000/db/income', {
+        fetch(`${dbServer}:${dbPort}/db/income`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
