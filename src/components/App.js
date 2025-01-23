@@ -20,7 +20,7 @@ function App() {
     .then(response => response.json())
     .then(categories => {
       setCategoryList(categories)
-      console.log("Initial set Category list ", categoryList)
+      console.log("Initial set Category list ")
     })
   
   }, [])
