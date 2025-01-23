@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import './App.css';
-import Home from './Home'
 import NavBar from './NavBar';
 
 
