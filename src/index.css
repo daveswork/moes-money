@@ -15,7 +15,6 @@ code {
 .navbar > a{
   display: inline-block;
   box-sizing: border-box;
-  width: 70px;
   padding: 5px;
   margin: 0 6px 6px;
   background: lightblue;
@@ -67,6 +66,9 @@ table, th, td {
   text-align: left;
 }
 
-.summary, body {
+.summary,body {
+  display: flexbox;
   text-align:  center;
+  padding-left: 15%;
+  padding-right: 15%;
 }
