@@ -143,8 +143,6 @@ function App() {
         incomeSourceList:incomeSourceList, setIncomeSourceList:setIncomeSourceList, updateIncomeList:updateIncomeList, removeIncome:removeIncome, updateIncome: updateIncome,
         expenditureList:activeExpenseList, setExpenditureList:setActiveExpenseList, updateExpenseList: updateExpenseList, removeExpense:removeExpense, updateExpense:updateExpense
         }}/>
-        <Home />
- 
     </div>
   );
 }
